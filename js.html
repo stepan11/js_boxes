@@ -1,0 +1,37 @@
+<html>
+    <heaed>
+        <style>
+            .box {
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                display: inline-block;
+                border: solid 1px black;
+            }
+        </style>
+    </heaed>
+    <body>
+        <script>
+        var WIDTH = 50; TOP = 50;
+        var LEFT = (document.body.clientWidth / 2- (WIDTH / 2));
+        for(var i=0; i<9; i++) {
+            var boxTop = TOP + (WIDTH + 5)*i + 'px';
+            for(var j = 0; j < i; j++) {
+        var box = document.createElement('div');
+        var attr = document.createAttribute('class');
+        attr.value = 'box';
+        box.setAttributeNode(attr);
+        box.style.top = boxTop;
+        box.style.left = LEFT + (WIDTH+5)*j + 'px';
+        box.style.width = WIDTH + 'px';
+        box.style.height = WIDTH + 'px';
+                // what is box.offsetWidth
+                console.log ('width', box.offsetWidth);
+                document.body.appendChild(box);
+            }
+            // -= ???
+            LEFT -= (WIDTH / 2);
+        }
+        </script>
+    </body>
+</html>
